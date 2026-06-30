@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from security.jwt_handler import create_token
+from backend.authentication.jwt_handler import create_access_token
 
 router = APIRouter()
 
@@ -11,6 +11,6 @@ def login():
         "role": "HR"
     }
 
-    token = create_token(user)
+    token = create_access_token(user)
 
     return {"access_token": token, "token_type": "bearer"}

@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta
 from jose import jwt
 
-from config import SECRET_KEY, ALGORITHM, ACCESS_TOKEN_EXPIRE_MINUTES
+from backend.config import SECRET_KEY, ALGORITHM, ACCESS_TOKEN_EXPIRE_MINUTES
 
 
 def create_access_token(data: dict):
@@ -20,3 +20,16 @@ def create_access_token(data: dict):
     )
 
     return encoded_jwt
+
+from jose import JWTError
+
+def decode_token(token: str):
+    try:
+        payload = jwt.decode(
+            token,
+            SECRET_KEY,
+            algorithms=[ALGORITHM]
+        )
+        return payload
+    except JWTError:
+        return None

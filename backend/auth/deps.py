@@ -1,6 +1,6 @@
 from fastapi import Header, HTTPException, Depends
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
-from security.jwt_handler import decode_token
+from backend.authentication.jwt_handler import decode_token
 
 # This enables Swagger Authorize button
 security = HTTPBearer()

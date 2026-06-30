@@ -1,0 +1,33 @@
+services:
+  fastapi:
+    build: .
+    container_name: enterprise-fastapi
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+      - redis
+    environment:
+      DATABASE_URL: postgresql://postgres:postgres123@postgres:5432/enterprise_ai
+
+  postgres:
+    image: postgres:16
+    container_name: enterprise-postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres123
+      POSTGRES_DB: enterprise_ai
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7
+    container_name: enterprise-redis
+    ports:
+      - "6379:6379"
+
+volumes:
+  postgres_data:
