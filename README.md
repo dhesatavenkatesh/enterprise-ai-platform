@@ -1,131 +1,30 @@
-# Enterprise AI Platform
+#  BlackRoth Enterprise AI Platform
 
-An enterprise-grade AI platform built for BlackRoth that provides secure authentication, Role-Based Access Control (RBAC), Retrieval-Augmented Generation (RAG), enterprise knowledge management, semantic search, and AI-powered document assistance.
+## Overview
+
+BlackRoth Enterprise AI Platform is a secure enterprise-grade AI assistant built using FastAPI and Retrieval-Augmented Generation (RAG). It enables employees to securely interact with enterprise knowledge through natural language conversations while ensuring authentication, authorization, source citations, and hallucination detection.
 
 ---
 
-# Project Overview
+# Features
 
-The Enterprise AI Platform enables employees to securely interact with company knowledge using AI.
-
-Key capabilities include:
+## Sprint 1 – Enterprise AI Platform Foundation
 
 - JWT Authentication
 - Role-Based Access Control (RBAC)
+- PostgreSQL Integration
 - Audit Logging
-- Enterprise Knowledge Base
-- Document Processing Pipeline
-- Embedding Generation
-- ChromaDB Vector Database
-- Semantic Search
-- Enterprise Knowledge Center
-- Docker Deployment
+- Enterprise API Architecture
+- Docker Support
+- Secure Enterprise Gateway
 
 ---
 
-# Technology Stack
-
-## Backend
-
-- Python 3.14
-- FastAPI
-- Uvicorn
-
-## Database
-
-- PostgreSQL
-- ChromaDB
-
-## AI & RAG
-
-- Sentence Transformers
-- HuggingFace
-- Chroma Vector Database
-
-## Security
-
-- JWT
-- Passlib (bcrypt)
-- RBAC
-- Audit Logging
-
-## Deployment
-
-- Docker
-- Docker Compose
-- Redis
-
----
-
-# Project Structure
-
-```text
-enterprise-ai-platform/
-
-backend/
-│
-├── admin/
-├── audit/
-├── auth/
-├── authentication/
-├── chat/
-├── evaluation/
-├── rag/
-├── security/
-├── tests/
-
-database/
-
-docs/
-
-storage/
-├── documents/
-├── chroma_db/
-
-docker-compose.yml
-Dockerfile
-requirements.txt
-README.md
-```
-
----
-
-# Completed Features
-
-## Sprint 1
-
-### Authentication
-
-- JWT Login
-- JWT Validation
-- Password Hashing
-- Token Verification
-
-### Authorization
-
-- RBAC
-- Admin Access
-- HR Access
-- Employee Access
-
-### Monitoring
-
-- Audit Logs
-- Request Logging
-
-### Docker
-
-- FastAPI
-- PostgreSQL
-- Redis
-
----
-
-## Sprint 2
+## Sprint 2 – Enterprise Knowledge Base & RAG Foundation
 
 ### Knowledge Base
 
-- Document Upload
+- Document Upload Service
 - PDF Support
 - DOCX Support
 - TXT Support
@@ -134,132 +33,252 @@ README.md
 ### Document Processing
 
 - Text Extraction
-- Chunking
+- Text Cleaning
+- Chunk Generation
 - Metadata Extraction
 
 ### Embeddings
 
 - Sentence Transformers
 - MiniLM Embeddings
-- Vector Generation
+- Embedding Benchmark
 
 ### Vector Database
 
-- ChromaDB
-- Persistent Storage
+- ChromaDB Integration
 - Department Collections
+- Metadata Filtering
+- Semantic Search
 
-### APIs
+### Knowledge APIs
 
-- Upload API
-- Knowledge Base API
-- Retrieval API
-- Semantic Search API
+- Upload Documents
+- List Documents
+- Update Documents
+- Delete Documents
+- Search Documents
 
-### Administration
-
-- Approval Queue
-- Archive
-- Version History
-
-### Evaluation
-
-- Retrieval Benchmark
-- Chunk Evaluation
-- Embedding Benchmark
-
----
-
-## Enterprise Knowledge Center (Bonus)
-
-Implemented:
+### Enterprise Knowledge Center
 
 - Multiple Upload
 - Folder Management
 - Department Collections
-- Auto Embedding
 - Approval Workflow
+- Auto Embedding
+- Auto Versioning
+- Duplicate Detection
 - Document Expiration
-- Semantic Retrieval
-- ChromaDB Integration
+- Knowledge Analytics
 
 ---
 
-# Enterprise Architecture
+## Sprint 3 – Enterprise Conversational RAG Engine
 
-```text
-                User
-                  │
-                  ▼
-         Authentication
-                  │
-                  ▼
-          Authorization
-                  │
-                  ▼
-        Enterprise API
-                  │
-       ┌──────────┴──────────┐
-       │                     │
-       ▼                     ▼
-Knowledge Base         Audit Logger
-       │
-       ▼
-Document Processor
-       │
-       ▼
-Chunk Generator
-       │
-       ▼
-Embedding Service
-       │
-       ▼
-ChromaDB
-       │
-       ▼
-Retriever
+### AI Chat
+
+- Enterprise Chat API
+- Multi-turn Conversation
+- Session Management
+- Conversation Memory
+- Streaming Ready Architecture
+
+### RAG Pipeline
+
+- Query Rewriting
+- Hybrid Search
+- BM25 Search
+- Semantic Search
+- Cross Encoder Re-ranking
+- Context Builder
+- Citation Engine
+- Hallucination Detection
+
+### Analytics
+
+- User Feedback
+- Retrieval Metrics
+- Response Quality
+- Cost Tracking
+
+### Evaluation
+
+- Recall@5
+- Precision@5
+- MRR
+- Retrieval Latency
+- Generation Latency
+- Citation Accuracy
+- Hallucination Rate
+
+---
+
+# Enterprise AI Workflow
+
+```
+Employee
+     │
+     ▼
+JWT Authentication
+     │
+     ▼
+Conversation Memory
+     │
+     ▼
+Query Rewriter
+     │
+     ▼
+Hybrid Search
+(BM25 + ChromaDB)
+     │
+     ▼
+Cross Encoder Re-ranking
+     │
+     ▼
+Context Builder
+     │
+     ▼
+Enterprise LLM
+     │
+     ▼
+Citation Engine
+     │
+     ▼
+Hallucination Detection
+     │
+     ▼
+AI Response
+     │
+     ▼
+Analytics & Feedback
 ```
 
 ---
 
-# Running Locally
+# Tech Stack
 
-## Clone Repository
+### Backend
 
-```bash
-git clone <repository-url>
-cd enterprise-ai-platform
+- FastAPI
+- Python
+
+### Database
+
+- PostgreSQL
+
+### Vector Database
+
+- ChromaDB
+
+### AI Models
+
+- Sentence Transformers
+- Cross Encoder MiniLM
+
+### Authentication
+
+- JWT
+- RBAC
+
+### Deployment
+
+- Docker
+- Docker Compose
+
+### Documentation
+
+- Markdown
+
+### Version Control
+
+- Git
+- GitHub
+
+---
+
+# Project Structure
+
+```
+enterprise-ai-platform/
+
+backend/
+    authentication/
+    auth/
+    rag/
+    chat/
+    admin/
+    evaluation/
+
+database/
+
+docs/
+
+evaluation/
+
+storage/
+
+docker/
+
+tests/
 ```
 
-## Install Dependencies
+---
 
-```bash
-pip install -r backend/requirements.txt
-```
+# APIs
 
-## Start FastAPI
+## Authentication
 
-```bash
-uvicorn backend.main:app --reload
-```
+- Login
+- JWT Authentication
 
-Open:
+## Knowledge Base
 
-```
-http://127.0.0.1:8000/docs
-```
+- Upload Documents
+- Search Documents
+- Retrieve Documents
+
+## Enterprise Chat
+
+- Create Session
+- Chat
+- Conversation History
+- Delete History
+
+## Knowledge Center
+
+- Multiple Upload
+- Approval Queue
+- Document Approval
+- Expired Documents
+
+---
+
+# Security
+
+- JWT Authentication
+- Role-Based Access Control
+- Audit Logging
+- Hallucination Detection
+- Citation Verification
+- Metadata Filtering
+- Department-Level Authorization
 
 ---
 
 # Docker
 
-Build and start:
+Build
 
 ```bash
-docker compose up --build
+docker compose build
 ```
 
-Stop:
+Run
+
+```bash
+docker compose up
+```
+
+Stop
 
 ```bash
 docker compose down
@@ -267,50 +286,48 @@ docker compose down
 
 ---
 
-# API Documentation
+# Evaluation Reports
 
-Swagger UI
-
-```
-http://127.0.0.1:8000/docs
-```
+- Retrieval Benchmark
+- Hallucination Report
+- RAG Performance Report
 
 ---
 
-# Sprint Progress
+# Documentation
 
-| Sprint | Status |
-|---------|--------|
-| Sprint 1 | ✅ Completed |
-| Sprint 1 Bonus (Docker) | ✅ Completed |
-| Sprint 2 | ✅ Completed |
-| Sprint 2 Bonus | ✅ Completed |
-| Sprint 3 |  In Progress |
+- Enterprise Architecture
+- Knowledge Portal Design
+- Enterprise Chat Dashboard Design
 
 ---
 
-# Future Enhancements
+# Completed Sprints
 
-Sprint 3 will introduce:
+- Sprint 1 – Enterprise AI Platform Foundation
+- Sprint 2 – Knowledge Base & RAG Foundation
+- Sprint 3 – Enterprise Conversational RAG Engine
 
+---
+
+# Bonus Features
+
+- Enterprise Knowledge Center
+- BlackRoth Enterprise AI Chat
+- Multi-turn Conversations
+- Context Memory
 - Hybrid Search
-- Query Rewriting
-- Cross Encoder Re-ranking
-- Conversation Memory
-- Context Builder
-- Enterprise Chat API
-- Citation Engine
+- Re-ranking
 - Hallucination Detection
-- RAG Evaluation
-- Enterprise Chat Dashboard
+- Retrieval Analytics
+- Cost Tracking
 
 ---
 
 # Author
 
 **D. Venkatesh**
-**BR26AI9991**
 
-Enterprise AI Platform Project
+Enterprise AI Platform Developer
 
-BlackRoth Enterprise AI Training
+FastAPI • PostgreSQL • ChromaDB • RAG • Docker • JWT • RBAC • Enterprise AI

@@ -10,3 +10,10 @@ redis
 pydantic
 email-validator
 bcrypt==4.0.1
+pypdf
+python-docx
+beautifulsoup4
+markdown
+sentence-transformers
+chromadb
+rank-bm25
