@@ -1,326 +1,272 @@
-#  BlackRoth Enterprise AI Platform
+# BlackRoth Enterprise AI Platform
 
 ## Overview
 
-BlackRoth Enterprise AI Platform is a secure enterprise-grade AI assistant built using FastAPI and Retrieval-Augmented Generation (RAG). It enables employees to securely interact with enterprise knowledge through natural language conversations while ensuring authentication, authorization, source citations, and hallucination detection.
+The BlackRoth Enterprise AI Platform is an enterprise-grade AI assistant built using FastAPI, PostgreSQL, ChromaDB, and modern AI technologies. It provides secure authentication, Retrieval-Augmented Generation (RAG), AI agents, workflow automation, enterprise tool integration, and monitoring capabilities.
 
 ---
 
 # Features
 
-## Sprint 1 – Enterprise AI Platform Foundation
+## Sprint 1 – Enterprise AI Foundation
 
 - JWT Authentication
 - Role-Based Access Control (RBAC)
 - PostgreSQL Integration
 - Audit Logging
-- Enterprise API Architecture
+- FastAPI REST APIs
 - Docker Support
-- Secure Enterprise Gateway
+- Secure Enterprise Architecture
 
 ---
 
-## Sprint 2 – Enterprise Knowledge Base & RAG Foundation
+## Sprint 2 – Enterprise Knowledge Portal
 
-### Knowledge Base
-
-- Document Upload Service
-- PDF Support
-- DOCX Support
-- TXT Support
-- Markdown Support
-
-### Document Processing
-
-- Text Extraction
-- Text Cleaning
-- Chunk Generation
-- Metadata Extraction
-
-### Embeddings
-
-- Sentence Transformers
-- MiniLM Embeddings
-- Embedding Benchmark
-
-### Vector Database
-
-- ChromaDB Integration
-- Department Collections
-- Metadata Filtering
+- Document Upload
+- Document Processing
+- Text Chunking
+- Embedding Generation
+- ChromaDB Vector Database
 - Semantic Search
-
-### Knowledge APIs
-
-- Upload Documents
-- List Documents
-- Update Documents
-- Delete Documents
-- Search Documents
-
-### Enterprise Knowledge Center
-
-- Multiple Upload
-- Folder Management
 - Department Collections
-- Approval Workflow
-- Auto Embedding
-- Auto Versioning
-- Duplicate Detection
-- Document Expiration
+- Knowledge Center
+- Document Approval Workflow
 - Knowledge Analytics
 
 ---
 
 ## Sprint 3 – Enterprise Conversational RAG Engine
 
-### AI Chat
-
-- Enterprise Chat API
-- Multi-turn Conversation
-- Session Management
-- Conversation Memory
-- Streaming Ready Architecture
-
-### RAG Pipeline
-
-- Query Rewriting
-- Hybrid Search
-- BM25 Search
-- Semantic Search
+- Hybrid Search (Semantic + BM25)
 - Cross Encoder Re-ranking
+- Query Rewriting
+- Multi-turn Conversation Memory
 - Context Builder
+- Enterprise Chat APIs
 - Citation Engine
 - Hallucination Detection
-
-### Analytics
-
-- User Feedback
-- Retrieval Metrics
-- Response Quality
-- Cost Tracking
-
-### Evaluation
-
-- Recall@5
-- Precision@5
-- MRR
-- Retrieval Latency
-- Generation Latency
-- Citation Accuracy
-- Hallucination Rate
+- RAG Performance Evaluation
+- Enterprise Chat Dashboard
 
 ---
 
-# Enterprise AI Workflow
+## Sprint 4 – Enterprise AI Agents & Workflow Automation
+
+- AI Agent Orchestrator
+- MCP Gateway
+- Function Calling Framework
+- Workflow Engine
+- Human Approval System
+- Multi-Agent Collaboration
+- Enterprise Tool APIs
+- Agent Monitoring Dashboard
+- Workflow APIs
+- Enterprise AI Operations Console
+
+---
+
+## Bonus Challenge – BlackRoth AI Operations Platform
+
+### Business Modules
+
+- HR Automation
+- Payroll Automation
+- Recruitment Assistant
+- Customer Support
+- Technical Documentation
+- Project Management
+- Analytics
+
+### Enterprise Capabilities
+
+- AI Agent Routing
+- MCP Integration
+- Workflow Automation
+- Human Approval
+- Role-Based Access Control
+- Audit Logging
+- Notifications
+- Analytics Dashboard
+
+---
+
+# Project Architecture
 
 ```
 Employee
-     │
-     ▼
+      │
+      ▼
 JWT Authentication
-     │
-     ▼
-Conversation Memory
-     │
-     ▼
-Query Rewriter
-     │
-     ▼
-Hybrid Search
-(BM25 + ChromaDB)
-     │
-     ▼
+      │
+      ▼
+RBAC Authorization
+      │
+      ▼
+Enterprise Chat API
+      │
+      ▼
+Hybrid Search (Semantic + BM25)
+      │
+      ▼
 Cross Encoder Re-ranking
-     │
-     ▼
+      │
+      ▼
 Context Builder
-     │
-     ▼
-Enterprise LLM
-     │
-     ▼
-Citation Engine
-     │
-     ▼
-Hallucination Detection
-     │
-     ▼
-AI Response
-     │
-     ▼
-Analytics & Feedback
+      │
+      ▼
+Large Language Model
+      │
+      ▼
+AI Agent Orchestrator
+      │
+      ▼
+MCP Gateway
+      │
+      ▼
+Enterprise Tools
+      │
+      ▼
+Workflow Engine
+      │
+      ▼
+Approval Engine
+      │
+      ▼
+Monitoring & Analytics
 ```
 
 ---
 
-# Tech Stack
+# Technology Stack
 
-### Backend
+## Backend
 
+- Python 3.x
 - FastAPI
-- Python
+- Uvicorn
 
-### Database
+## Database
 
 - PostgreSQL
-
-### Vector Database
-
 - ChromaDB
 
-### AI Models
+## AI & Machine Learning
 
 - Sentence Transformers
-- Cross Encoder MiniLM
+- Hugging Face
+- Hybrid Search
+- BM25
+- Cross Encoder
+- RAG Pipeline
 
-### Authentication
+## Security
 
-- JWT
+- JWT Authentication
 - RBAC
+- Audit Logging
 
-### Deployment
+## DevOps
 
 - Docker
-- Docker Compose
-
-### Documentation
-
-- Markdown
-
-### Version Control
-
 - Git
 - GitHub
 
 ---
 
-# Project Structure
+# Folder Structure
 
 ```
-enterprise-ai-platform/
-
 backend/
+    agents/
+    api/
+    audit/
     authentication/
-    auth/
-    rag/
     chat/
-    admin/
     evaluation/
+    mcp/
+    monitoring/
+    rag/
+    tools/
+    workflows/
 
 database/
 
 docs/
 
-evaluation/
+frontend/
 
 storage/
-
-docker/
 
 tests/
 ```
 
 ---
 
-# APIs
+# API Modules
 
-## Authentication
-
-- Login
-- JWT Authentication
-
-## Knowledge Base
-
-- Upload Documents
-- Search Documents
-- Retrieve Documents
-
-## Enterprise Chat
-
-- Create Session
-- Chat
-- Conversation History
-- Delete History
-
-## Knowledge Center
-
-- Multiple Upload
-- Approval Queue
-- Document Approval
-- Expired Documents
+- Authentication APIs
+- Knowledge APIs
+- Chat APIs
+- Workflow APIs
+- Enterprise Tool APIs
+- BlackRoth Operations APIs
 
 ---
 
-# Security
+# Enterprise Modules
 
-- JWT Authentication
-- Role-Based Access Control
-- Audit Logging
-- Hallucination Detection
-- Citation Verification
-- Metadata Filtering
-- Department-Level Authorization
-
----
-
-# Docker
-
-Build
-
-```bash
-docker compose build
-```
-
-Run
-
-```bash
-docker compose up
-```
-
-Stop
-
-```bash
-docker compose down
-```
-
----
-
-# Evaluation Reports
-
-- Retrieval Benchmark
-- Hallucination Report
-- RAG Performance Report
+- Authentication
+- Knowledge Management
+- Conversational AI
+- AI Agents
+- Workflow Automation
+- Human Approval
+- Monitoring
+- Analytics
 
 ---
 
 # Documentation
 
-- Enterprise Architecture
+Project documentation includes:
+
+- Enterprise AI Governance
 - Knowledge Portal Design
-- Enterprise Chat Dashboard Design
+- Chat Dashboard Design
+- Agent Orchestration Design
+- Operations Console Design
+- Monitoring Design
+- Evaluation Reports
 
 ---
 
-# Completed Sprints
+# Key Capabilities
 
-- Sprint 1 – Enterprise AI Platform Foundation
-- Sprint 2 – Knowledge Base & RAG Foundation
-- Sprint 3 – Enterprise Conversational RAG Engine
+- Enterprise Authentication
+- Secure Role-Based Access
+- AI-Powered Knowledge Retrieval
+- Conversational RAG
+- AI Agent Orchestration
+- Workflow Automation
+- Enterprise Tool Integration
+- Human Approval System
+- Monitoring Dashboard
+- Analytics Dashboard
+- Audit Logging
+- Notifications
 
 ---
 
-# Bonus Features
+# Future Enhancements
 
-- Enterprise Knowledge Center
-- BlackRoth Enterprise AI Chat
-- Multi-turn Conversations
-- Context Memory
-- Hybrid Search
-- Re-ranking
-- Hallucination Detection
-- Retrieval Analytics
-- Cost Tracking
+- Kubernetes Deployment
+- Redis Caching
+- Multi-LLM Support
+- Voice Assistant
+- Mobile Dashboard
+- Multi-Tenant Architecture
+- Real-Time Analytics
+- Cost Optimization Dashboard
 
 ---
 
@@ -330,4 +276,8 @@ docker compose down
 
 Enterprise AI Platform Developer
 
-FastAPI • PostgreSQL • ChromaDB • RAG • Docker • JWT • RBAC • Enterprise AI
+---
+
+# License
+
+This project is developed for enterprise learning and demonstration purposes.

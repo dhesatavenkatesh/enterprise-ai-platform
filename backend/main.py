@@ -14,6 +14,8 @@ from backend.rag.folder_manager import router as folder_router
 from backend.rag.department_collections import router as department_router
 from backend.chat.chat_api import router as chat_router
 from backend.chat.enterprise_ai_chat import router as enterprise_chat_router
+from backend.api.workflow_api import router as workflow_router
+from backend.api.blackroth_operations_platform import router as blackroth_ops_router
 
 app = FastAPI(
     title="Enterprise AI Platform",
@@ -47,6 +49,8 @@ app.include_router(folder_router)
 app.include_router(department_router)
 app.include_router(chat_router)
 app.include_router(enterprise_chat_router)
+app.include_router(workflow_router)
+app.include_router(blackroth_ops_router)
 
 @app.get(
     "/",
