@@ -273,11 +273,3 @@ Project documentation includes:
 # Author
 
 **D. Venkatesh**
-
-Enterprise AI Platform Developer
-
----
-
-# License
-
-This project is developed for enterprise learning and demonstration purposes.
