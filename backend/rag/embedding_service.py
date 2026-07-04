@@ -6,7 +6,19 @@ from sentence_transformers import SentenceTransformer
 class EmbeddingService:
     def __init__(self, model_name="sentence-transformers/all-MiniLM-L6-v2"):
         self.model_name = model_name
-        self.model = SentenceTransformer(model_name)
+
+        try:
+            self.model = SentenceTransformer(
+                model_name,
+                local_files_only=True
+            )
+            print("Embedding model loaded from local cache.")
+
+        except Exception as e:
+            print("Local model load failed:", e)
+            print("Trying to download model from Hugging Face...")
+
+            self.model = SentenceTransformer(model_name)
 
     def generate_embedding(self, text: str):
         start_time = time.time()
@@ -39,4 +51,3 @@ class EmbeddingService:
             })
 
         return results
-    

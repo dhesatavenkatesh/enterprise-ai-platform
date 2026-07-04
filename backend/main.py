@@ -16,13 +16,23 @@ from backend.chat.chat_api import router as chat_router
 from backend.chat.enterprise_ai_chat import router as enterprise_chat_router
 from backend.api.workflow_api import router as workflow_router
 from backend.api.blackroth_operations_platform import router as blackroth_ops_router
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(
     title="Enterprise AI Platform",
     description="Enterprise AI Platform for BlackRoth",
     version="1.0.0"
 )
-
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:5173",
+        "http://127.0.0.1:5173",
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.middleware("http")
 async def audit_middleware(request: Request, call_next):
