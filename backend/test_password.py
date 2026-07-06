@@ -1,4 +1,4 @@
-from authentication.password_handler import hash_password, verify_password
+from backend.authentication.password_handler import hash_password, verify_password
 
 password = "admin123"
 

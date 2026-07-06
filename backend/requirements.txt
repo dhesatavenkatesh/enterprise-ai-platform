@@ -17,3 +17,4 @@ markdown
 sentence-transformers
 chromadb
 rank-bm25
+sentence-transformers

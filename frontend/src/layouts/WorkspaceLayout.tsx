@@ -1,8 +1,5 @@
+import { useState } from "react"
 import { NavLink, Outlet, useNavigate } from "react-router-dom"
-import CommandPalette from "@/components/CommandPalette"
-import NotificationPanel from "@/components/NotificationPanel"
-import { useWorkspaceStore } from "@/store/workspaceStore"
-
 import {
   BarChart3,
   Bot,
@@ -12,12 +9,16 @@ import {
   LayoutDashboard,
   LogOut,
   Menu,
+  Moon,
   Settings,
   Shield,
   User,
   X,
 } from "lucide-react"
-import { useState } from "react"
+
+import CommandPalette from "@/components/CommandPalette"
+import NotificationPanel from "@/components/NotificationPanel"
+import { useWorkspaceStore } from "@/store/workspaceStore"
 import { useAuthStore } from "@/store/authStore"
 
 const navigation = [
@@ -34,9 +35,10 @@ const navigation = [
 
 export default function WorkspaceLayout() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
+
   const logout = useAuthStore((state) => state.logout)
   const toggleDarkMode = useWorkspaceStore((state) => state.toggleDarkMode)
-  
+
   const navigate = useNavigate()
 
   const handleLogout = () => {
@@ -46,6 +48,9 @@ export default function WorkspaceLayout() {
 
   return (
     <div className="min-h-screen bg-slate-950 text-white">
+      <CommandPalette />
+      <NotificationPanel />
+
       <button
         onClick={() => setSidebarOpen(true)}
         className="fixed left-4 top-4 z-40 rounded-lg bg-slate-800 p-2 lg:hidden"
@@ -107,6 +112,14 @@ export default function WorkspaceLayout() {
         </nav>
 
         <div className="border-t border-slate-800 p-4">
+          <button
+            onClick={toggleDarkMode}
+            className="mb-2 flex w-full items-center gap-3 rounded-lg px-4 py-3 text-sm text-slate-400 hover:bg-slate-800 hover:text-white"
+          >
+            <Moon className="h-5 w-5" />
+            Dark Mode
+          </button>
+
           <button
             onClick={handleLogout}
             className="flex w-full items-center gap-3 rounded-lg px-4 py-3 text-sm text-red-400 hover:bg-red-500/10"

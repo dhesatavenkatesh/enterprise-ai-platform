@@ -1,4 +1,6 @@
 from fastapi import FastAPI, Request, Depends
+from backend.monitoring.metrics import router as metrics_router
+from backend.monitoring.metrics import metrics_middleware
 
 from backend.audit.logger import log_request
 from backend.auth.routes import router as auth_router
@@ -17,12 +19,15 @@ from backend.chat.enterprise_ai_chat import router as enterprise_chat_router
 from backend.api.workflow_api import router as workflow_router
 from backend.api.blackroth_operations_platform import router as blackroth_ops_router
 from fastapi.middleware.cors import CORSMiddleware
+from backend.monitoring.tracing import setup_tracing
 
 app = FastAPI(
     title="Enterprise AI Platform",
     description="Enterprise AI Platform for BlackRoth",
     version="1.0.0"
 )
+setup_tracing(app)
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
@@ -61,6 +66,8 @@ app.include_router(chat_router)
 app.include_router(enterprise_chat_router)
 app.include_router(workflow_router)
 app.include_router(blackroth_ops_router)
+app.include_router(metrics_router)
+
 
 @app.get(
     "/",
@@ -79,3 +86,9 @@ def home():
 def hr_docs(user=Depends(get_current_user)):
     check_permission(user["role"], "hr_documents")
     return {"message": "HR Access Granted"}
+
+from backend.monitoring.tracing import trace_rag_pipeline
+
+@app.get("/trace-test")
+def trace_test():
+    return trace_rag_pipeline("How can I apply for leave?")

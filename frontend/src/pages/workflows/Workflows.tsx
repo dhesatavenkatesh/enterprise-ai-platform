@@ -4,7 +4,6 @@ import {
   Clock,
   GitBranch,
   RotateCcw,
-  XCircle,
 } from "lucide-react"
 
 type WorkflowStatus = "Running" | "Completed" | "Failed" | "Cancelled"

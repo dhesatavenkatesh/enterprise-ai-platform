@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: blackroth-config
+  namespace: blackroth-ai
+data:
+  APP_ENV: "production"
+  REDIS_URL: "redis://redis-service:6379"
+  CHROMA_HOST: "chromadb-service"
+  CHROMA_PORT: "8000"
