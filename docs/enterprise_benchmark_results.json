@@ -1,0 +1,18 @@
+{
+    "timestamp": "2026-07-07 14:34:27",
+    "requests_per_second": 1845,
+    "average_latency_ms": 1551,
+    "ai_cost_per_request": 0.0059,
+    "rag_accuracy": 0.89,
+    "agent_success_rate": 0.96,
+    "cache_hit_ratio": 0.91,
+    "performance_status": "Healthy",
+    "capacity_forecast": {
+        "current_rps": 1845,
+        "forecasted_rps_next_month": 2767.5,
+        "recommended_scaling": "Increase pods by 50%"
+    },
+    "autoscaling_status": "HPA should scale pods",
+    "recommended_min_pods": 4,
+    "recommended_max_pods": 12
+}

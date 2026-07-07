@@ -20,6 +20,7 @@ from backend.api.workflow_api import router as workflow_router
 from backend.api.blackroth_operations_platform import router as blackroth_ops_router
 from fastapi.middleware.cors import CORSMiddleware
 from backend.monitoring.tracing import setup_tracing
+from backend.multitenancy.tenant_router import router as tenant_router
 
 app = FastAPI(
     title="Enterprise AI Platform",
@@ -67,6 +68,7 @@ app.include_router(enterprise_chat_router)
 app.include_router(workflow_router)
 app.include_router(blackroth_ops_router)
 app.include_router(metrics_router)
+app.include_router(tenant_router)
 
 
 @app.get(
